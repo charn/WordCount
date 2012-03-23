@@ -1,0 +1,88 @@
+Course: 58127 Programming in C (4 op /2 ov) Syksy 2007
+University of Helsinki - Department of Computer Science
+
+*******************************************************************************
+
+SANALASKURI
+
+ 1. Tehtävänanto
+ 2. Käyttöohje
+ 3. Ohjelman kääntäminen
+ 4. Tiedostot
+ 5. Testaus
+
+*******************************************************************************
+1. TEHTÄVÄNANTO:
+
+Tee ohjelma, joka lukee yhden tekstitiedoston. Käyttäjän pitää voida valita
+tiedoston syöttötapa. Hän voi joko antaa tiedoston nimen komentoriviparametrina
+tai ohjelma voi olettaa tiedon tulevan stdin-tiedostosta.
+
+Ohjelman pitää tulostaa tiedostosta löytyneet sanat (vähintään kaksi
+peräkkäistä kirjainmerkkiä) ja niiden esiintymisten lukumäärät
+aakkosjärjestyksessä. Kukin sana ja sen esiintymisten lukumäärä tulostetaan
+omalle rivilleen. Tulostiedoston nimi käsitellään samoin kuin syöttötiedoston.
+
+Käytä ratkaisussasi tietorakenteena binääripuuta. Toteuta binääripuu käyttäen
+osoittimia ja dynaamisuutta. Puutoteutuksesi on tarkoitus käyttää
+tietorakenteet -kurssilla opittuja puun perusoperaatioita.
+
+*******************************************************************************
+2. KÄYTTÖOHJE:
+
+Ohjelman käyttö: ./sanalaskuri [-s tiedosto] [-o tulostiedosto]
+
+Ohjelman mahdolliset parametrit:
+-h / --help                   Tulostaa tämän ohjeen.
+-s / --source <tiedosto>      Tiedosto, josta sanoja luetaan.
+-o / --out <tiedosto>         Tiedosto, johon tulokset tallennetaan.
+
+Jos parametrejä -s tai -o ei anneta, olettaa ohjelma syötteen tulevan
+standarista syöttövirrasta tai tulostuksen menevän standardiin tulostusvirtaan.
+
+Jos syötettä annetaan näppäimistöllä, voidaan sanojen antaminen lopettaa
+painamalla CTRL-D
+
+*******************************************************************************
+3. OHJELMAN KÄÄNTÄMINEN
+
+Ohjelma käännetään komennolla 'make'
+
+Debuggaustietoa saa näkyviin, kun hiukan muokkaa Makefile:n ensimmäisiä rivejä.
+
+*******************************************************************************
+4. TIEDOSTOT:
+
+ -bintree.h
+ 	Sisältää tyyppimäärittelyt BinTree ja BinSilmu, sekä esittelyt
+	funktioista.
+ -bintree.c
+ 	Sisältää binääripuun varsinaisen ohjelmakoodin.
+ -sanalasluri.h
+ 	Sisältää esittelyt funktioista.
+ -sanalaskuri.c
+ 	Sisältää sanalaskurin varsinaisen ohjelmakoodin eli on pääohjelma.
+ -dynchar.h
+ 	Sisältää esittelyt funktioista
+ -dynchar.c
+ 	Sisältää funktion, jota voidaan käyttää kun halutaan dynaaminen
+	merkkijonotaulukko.
+
+Ohjelman funktiot on esitelty tarkemmin .h -tiedostoissa.
+*******************************************************************************
+5. TESTAUS
+
+Testausta tuli tehtyä ohjelman kirjoitusaikana lähinnä empiirisesti. Kun
+ohjelman perustoiminnot oli saatu kasaan, aloitettiin testaaminen eri
+aineistoilla ja korjattiin tämän testauksen aika ilmenneet ongelmat
+(muutama selvä muistin ylivuoto, missä ohjelma kaatui suurella aineistolla).
+Ohjelma tulosti muutamia lisätietoja DEBUG -määreellä, joka auttoi hiukan
+joidenkin ongelmien paikallistamisessa.
+
+Pienempiä muistin ylivuotoja tarkisteltiin ohjelmalla nimeltä valgrind ja kaikki
+sen ilmoittamat virheet korjattiin. Ohjelman ei pitäisi vuotaa muistia.
+
+Ohjelman oikeanlaista toimintaa testattiin erilaisilla aineistoilla, joista
+suurin ja pisin oli mm. HTML 4.01 spesifikaation -dokumentti. Sanat voivat
+ohjelmassa olla mielivaltaisen pituisia, tätäkin testattiin kohtuullisen
+isoilla sanoilla.
